@@ -21,9 +21,9 @@ public class Main {
         var indexLength = Integer.toString(maxIndex).length();
         for (int i = 0; i <= maxIndex; i++) {
             var sourceFile = sourceFiles.get(i);
-            var targetFileName = String.format("%0" + indexLength + "d", i) + FILE_NAME_SUFFIX;
+            var targetFileName = String.format("%0" + indexLength + "d - %s", i, sourceFile.getName());
             var targetFile = new File(outDir, targetFileName);
-            System.out.println(String.format("%s -> %s", sourceFile.getAbsolutePath(), targetFile.getAbsolutePath()));
+            System.out.printf("%s -> %s%n", sourceFile.getAbsolutePath(), targetFile.getAbsolutePath());
             Files.copy(sourceFile.toPath(), targetFile.toPath());
         }
     }
